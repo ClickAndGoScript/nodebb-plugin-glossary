@@ -4,8 +4,10 @@ $(document).ready(function () {
 	function initTooltips() {
 		const tooltipTriggerList = document.querySelectorAll('#content .glossary-wrapper');
 		tooltipTriggerList.forEach(function (el) {
-			if (!bootstrap.Tooltip.getInstance(el)) {
-				new bootstrap.Tooltip(el);
+			if (typeof bootstrap !== 'undefined') {
+				if (!bootstrap.Tooltip.getInstance(el)) {
+					new bootstrap.Tooltip(el);
+				}
 			}
 		});
 	}
